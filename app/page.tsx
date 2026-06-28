@@ -33,7 +33,7 @@ export default function Home() {
           className="absolute inset-0"
         >
           <Image
-            src="/images/gita/57dc177d-3eb0-4b87-8148-33b3380aaa2a.jpg"
+            src="/images/gita/02_modern_luxury_living_room_design.png"
             alt="Interior by Batul Champeli"
             fill
             priority
