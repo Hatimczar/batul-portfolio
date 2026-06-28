@@ -88,3 +88,10 @@
     scrollbar-width: none;
   }
 }
+
+/* Hide default cursor on desktop — custom cursor takes over */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}

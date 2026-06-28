@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   icons: { icon: "/favicon.svg" },
@@ -23,7 +25,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col cursor-none-md">
+        <SmoothScroll />
+        <CustomCursor />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
