@@ -75,7 +75,7 @@ export default function CustomCursor() {
           width: 8,
           height: 8,
           borderRadius: "50%",
-          backgroundColor: hovered ? "#C9A96E" : "#1A1A18",
+          backgroundColor: hovered ? "#ffffff" : "#1A1A18",
           opacity: hidden ? 0 : 1,
           transition: "background-color 0.2s, opacity 0.3s",
           willChange: "transform",
@@ -87,8 +87,8 @@ export default function CustomCursor() {
         className="fixed top-0 left-0 z-[9998] pointer-events-none hidden md:block"
         style={{
           borderRadius: "50%",
-          border: `1px solid ${hovered ? "#C9A96E" : "rgba(26,26,24,0.35)"}`,
-          backgroundColor: hovered ? "rgba(201,169,110,0.08)" : "transparent",
+          border: `1.5px solid ${hovered ? "#1A1A18" : "rgba(26,26,24,0.35)"}`,
+          backgroundColor: hovered ? "rgba(26,26,24,0.85)" : "transparent",
           opacity: hidden ? 0 : 1,
           transition: "width 0.35s cubic-bezier(0.25,0.1,0.25,1), height 0.35s cubic-bezier(0.25,0.1,0.25,1), border-color 0.25s, background-color 0.25s, opacity 0.3s",
           willChange: "transform, width, height",
