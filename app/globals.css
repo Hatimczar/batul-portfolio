@@ -100,6 +100,15 @@
   }
 }
 
+/* Smooth page entry on every navigation */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+main {
+  animation: pageFadeIn 0.45s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
 /* Hide default cursor on desktop — custom cursor takes over */
 @media (pointer: fine) {
   *, *::before, *::after {
