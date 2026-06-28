@@ -58,6 +58,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
   body {
     background-color: #F5F2EE;
@@ -65,10 +66,20 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Remove blue flash on tap for iOS */
+    -webkit-tap-highlight-color: transparent;
   }
   ::selection {
     background-color: #C9A96E;
     color: #fff;
+  }
+  /* Smooth native momentum on iOS for scrollable containers */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Better button/link tap feel on mobile */
+  a, button {
+    touch-action: manipulation;
   }
 }
 

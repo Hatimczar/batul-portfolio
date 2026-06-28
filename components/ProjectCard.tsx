@@ -18,7 +18,7 @@ export default function ProjectCard({ project, index }: Props) {
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <Link href={`/projects/${project.slug}`} className="group block">
+      <Link href={`/projects/${project.slug}`} className="group block active:opacity-80 transition-opacity duration-150">
         {/* Image */}
         <div className="relative overflow-hidden aspect-[4/3] bg-[#E8E4DF] mb-5">
           <Image
