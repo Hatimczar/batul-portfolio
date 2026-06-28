@@ -29,12 +29,13 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen flex flex-col cursor-none-md">
         <LoadingScreen />
-        <PageTransition />
         <SmoothScroll />
         <CustomCursor />
         <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <PageTransition>
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </PageTransition>
       </body>
     </html>
   );

@@ -1,25 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function PageTransition() {
+export default function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [key, setKey] = useState(pathname);
-
-  useEffect(() => { setKey(pathname); }, [pathname]);
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
-        key={key}
-        initial={{ scaleY: 1, originY: 0 }}
-        animate={{ scaleY: 0, originY: 0 }}
-        exit={{ scaleY: 1, originY: 1 }}
-        transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed inset-0 z-[200] bg-[#1A1A18] pointer-events-none"
-      />
+        key={pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="flex-1 flex flex-col"
+      >
+        {children}
+      </motion.div>
     </AnimatePresence>
   );
 }
