@@ -47,7 +47,7 @@ const projects: Project[] = [
       "A modern family home designed with contemporary textures, clean detailing, and deeply personalised spaces. The design language was tailored to reflect the client's preferences while maintaining functionality and comfort across all four bedrooms.",
     story:
       "The Gita Residence in Bandra is a study in layered contemporary living. A curved bouclé sofa anchors the living room against a dramatic bookmatched marble bookcase, while the mandir — backlit in glowing onyx with a hand-painted chinoiserie ceiling panel — becomes the spiritual heart of the home. A curated terracotta tile art installation adds cultural warmth to the formal spaces. Each bedroom was individually tailored: the master suite features bespoke joinery and a dressing area, while the children's rooms balance personality with practicality. The project was delivered end-to-end, from concept development through contractor coordination and final handover.",
-    heroImage: "/images/gita/01_cozy_minimalist_living_room_design.png",
+    heroImage: "/images/gita/02_modern_luxury_living_room_design.png",
     galleryImages: [
       "/images/gita/01_cozy_minimalist_living_room_design.png",
       "/images/gita/02_modern_luxury_living_room_design.png",
