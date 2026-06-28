@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ── Canela — self-hosted ─────────────────────────────────────
+   Drop your licensed Canela .woff2 files into /public/fonts/
+   Expected:
+     Canela-Light.woff2         weight 300, normal
+     Canela-Regular.woff2       weight 400, normal
+     Canela-Medium.woff2        weight 500, normal
+     Canela-LightItalic.woff2   weight 300, italic
+     Canela-Italic.woff2        weight 400, italic
+   ──────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Design tokens ───────────────────────────────────────────── */
+@theme {
+  --color-cream: #F5F2EE;
+  --color-ink: #1A1A18;
+  --color-gold: #C9A96E;
+  --color-taupe: #8C7B6B;
+  --color-warm-gray: #E8E4DF;
+}
+
+/* ── Base ────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #F5F2EE;
+    color: #1A1A18;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background-color: #C9A96E;
+    color: #fff;
+  }
+}
+
+/* ── Font utilities — placed after Tailwind so they win ──────── */
+@layer utilities {
+  .font-display {
+    font-family: "Canela", "Didot", "Bodoni MT", Georgia, serif;
+  }
+  .font-sans {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
