@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  icons: { icon: "/favicon.svg" },
   title: "Batul Champeli — Interior Designer",
   description:
     "Mumbai-based interior designer specialising in residential and commercial spaces. Thoughtful design, refined execution.",
