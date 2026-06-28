@@ -8,7 +8,7 @@ export default function ProjectAnimations({ project }: { project: Project }) {
   return (
     <>
       {/* ── CONCEPT + STORY ───────────────────────────────────── */}
-      <section className="py-20 md:py-28 px-6 md:px-12">
+      <section className="py-12 md:py-28 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
             <div className="md:col-span-5">
@@ -62,7 +62,7 @@ export default function ProjectAnimations({ project }: { project: Project }) {
 
       {/* ── GALLERY ───────────────────────────────────────────── */}
       {project.galleryImages.length > 1 && (
-        <section className="pb-20 px-6 md:px-12">
+        <section className="pb-12 md:pb-20 px-6 md:px-12">
           <div className="max-w-[1400px] mx-auto">
             <div className="flex items-center gap-6 mb-12">
               <span className="h-px w-12 bg-[#C9A96E]" />

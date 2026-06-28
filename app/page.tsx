@@ -90,7 +90,7 @@ export default function Home() {
       </section>
 
       {/* ── INTRO ─────────────────────────────────────────────── */}
-      <section className="py-28 md:py-36 px-6 md:px-12">
+      <section className="py-16 md:py-28 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-7">
@@ -138,7 +138,7 @@ export default function Home() {
       </section>
 
       {/* ── FEATURED PROJECTS ─────────────────────────────────── */}
-      <section className="pb-24 px-6 md:px-12">
+      <section className="pb-12 md:pb-24 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -181,9 +181,9 @@ export default function Home() {
                     <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] leading-tight group-hover:text-[#C9A96E] transition-colors duration-300">
                       {featured[0].name}
                     </h2>
-                    <p className="font-sans text-[12px] tracking-[0.15em] uppercase text-[#8C7B6B] mt-2">
-                      {featured[0].type} · {featured[0].location},{" "}
-                      {featured[0].building}
+                    <p className="font-sans text-[12px] tracking-[0.15em] uppercase text-[#8C7B6B] mt-2 leading-relaxed">
+                      {featured[0].type} · {featured[0].location}
+                      {featured[0].building && `, ${featured[0].building}`}
                     </p>
                   </div>
                   <span className="shrink-0 text-[11px] tracking-[0.2em] uppercase font-sans text-[#C9A96E] border-b border-[#C9A96E] pb-1 inline-flex items-center gap-2">
@@ -204,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* ── ALL PROJECTS CTA ──────────────────────────────────── */}
-      <section className="py-24 px-6 md:px-12 bg-[#1A1A18]">
+      <section className="py-14 md:py-24 px-6 md:px-12 bg-[#1A1A18]">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
             <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-3">
@@ -228,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* ── PHILOSOPHY ────────────────────────────────────────── */}
-      <section className="py-32 px-6 md:px-12 overflow-hidden">
+      <section className="py-16 md:py-32 px-6 md:px-12 overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
             <motion.div

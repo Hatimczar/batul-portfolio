@@ -28,7 +28,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ── HEADER ────────────────────────────────────────────── */}
-      <section className="pt-36 pb-20 px-6 md:px-12 border-b border-[#E8E4DF]">
+      <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-6 md:px-12 border-b border-[#E8E4DF]">
         <div className="max-w-[1400px] mx-auto">
           <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-4">
             Let&apos;s Talk
@@ -45,7 +45,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── FORM + CONTACT ────────────────────────────────────── */}
-      <section className="py-20 px-6 md:px-12">
+      <section className="py-12 md:py-20 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24">
             {/* Form */}

@@ -70,7 +70,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── HEADER ────────────────────────────────────────────── */}
-      <section className="pt-36 pb-24 px-6 md:px-12">
+      <section className="pt-28 pb-10 md:pt-36 md:pb-24 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-4">
             The Designer
@@ -82,7 +82,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── BIO + IMAGE ───────────────────────────────────────── */}
-      <section className="pb-28 px-6 md:px-12">
+      <section className="pb-14 md:pb-28 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
             {/* Portrait placeholder — will be replaced with Batul's photo */}
@@ -160,7 +160,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── PHILOSOPHY ────────────────────────────────────────── */}
-      <section className="py-24 px-6 md:px-12 bg-[#1A1A18]">
+      <section className="py-14 md:py-24 px-6 md:px-12 bg-[#1A1A18]">
         <div className="max-w-[1400px] mx-auto max-w-3xl">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -187,7 +187,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── SKILLS ────────────────────────────────────────────── */}
-      <section className="py-24 px-6 md:px-12 border-b border-[#E8E4DF]">
+      <section className="py-14 md:py-24 px-6 md:px-12 border-b border-[#E8E4DF]">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-3">
@@ -212,7 +212,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── EXPERIENCE ────────────────────────────────────────── */}
-      <section className="py-24 px-6 md:px-12 border-b border-[#E8E4DF]">
+      <section className="py-14 md:py-24 px-6 md:px-12 border-b border-[#E8E4DF]">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-3">
@@ -261,7 +261,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── EDUCATION ─────────────────────────────────────────── */}
-      <section className="py-24 px-6 md:px-12">
+      <section className="py-14 md:py-24 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-3">

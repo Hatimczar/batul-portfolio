@@ -45,7 +45,7 @@ export default async function ProjectPage({
           <ArrowLeft size={12} /> All Projects
         </Link>
 
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-16">
           <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-white/60 mb-3">
             {project.category}
           </p>
@@ -103,7 +103,7 @@ export default async function ProjectPage({
           {prev ? (
             <Link
               href={`/projects/${prev.slug}`}
-              className="group flex flex-col p-8 md:p-12 border-r border-[#E8E4DF] hover:bg-[#F5F2EE] transition-colors duration-300"
+              className="group flex flex-col p-6 md:p-12 border-r border-[#E8E4DF] hover:bg-[#F5F2EE] transition-colors duration-300"
             >
               <span className="flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase font-sans text-[#8C7B6B] mb-3">
                 <ArrowLeft size={12} /> Previous
@@ -120,7 +120,7 @@ export default async function ProjectPage({
           {next ? (
             <Link
               href={`/projects/${next.slug}`}
-              className="group flex flex-col items-end p-8 md:p-12 hover:bg-[#F5F2EE] transition-colors duration-300"
+              className="group flex flex-col items-end p-6 md:p-12 hover:bg-[#F5F2EE] transition-colors duration-300"
             >
               <span className="flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase font-sans text-[#8C7B6B] mb-3">
                 Next <ArrowRight size={12} />

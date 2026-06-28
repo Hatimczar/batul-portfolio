@@ -17,12 +17,12 @@ export default function ProjectsPage() {
   return (
     <>
       {/* Header */}
-      <section className="pt-36 pb-16 px-6 md:px-12 border-b border-[#E8E4DF]">
+      <section className="pt-28 pb-10 md:pt-36 md:pb-16 px-6 md:px-12 border-b border-[#E8E4DF]">
         <div className="max-w-[1400px] mx-auto">
           <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-4">
             Portfolio
           </p>
-          <h1 className="font-display text-[clamp(3rem,8vw,6rem)] leading-none text-[#1A1A18] mb-10">
+          <h1 className="font-display text-[clamp(2.5rem,8vw,6rem)] leading-none text-[#1A1A18] mb-8 md:mb-10">
             Projects
           </h1>
 
@@ -46,7 +46,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Grid */}
-      <section className="py-20 px-6 md:px-12">
+      <section className="py-12 md:py-20 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <motion.div
             layout

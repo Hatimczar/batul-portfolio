@@ -45,7 +45,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <a
                 href="mailto:batulhusain7862@gmail.com"
-                className="text-[13px] tracking-wide text-[#F5F2EE]/70 hover:text-[#C9A96E] transition-colors duration-300 font-sans"
+                className="text-[13px] tracking-wide text-[#F5F2EE]/70 hover:text-[#C9A96E] transition-colors duration-300 font-sans break-all"
               >
                 batulhusain7862@gmail.com
               </a>
