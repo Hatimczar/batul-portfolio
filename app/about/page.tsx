@@ -94,7 +94,7 @@ export default function AboutPage() {
               className="relative aspect-[3/4] bg-[#E8E4DF] overflow-hidden"
             >
               <Image
-                src="/images/karwa/6680d803-c931-442b-879a-d529931c2de6.jpg"
+                src="/images/batul-portrait.jpeg"
                 alt="Batul Champeli"
                 fill
                 className="object-cover"
