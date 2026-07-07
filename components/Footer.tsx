@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Mail, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -42,20 +43,22 @@ export default function Footer() {
             <p className="text-[10px] tracking-[0.25em] uppercase text-[#8C7B6B] font-sans mb-5">
               Get in Touch
             </p>
-            <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-4 mt-1">
               <a
                 href="mailto:batulhusain7862@gmail.com"
-                className="text-[13px] tracking-wide text-[#F5F2EE]/70 hover:text-[#C9A96E] transition-colors duration-300 font-sans break-all"
+                aria-label="Email Batul"
+                className="flex items-center justify-center w-10 h-10 border border-white/10 text-[#F5F2EE]/60 hover:border-[#C9A96E] hover:text-[#C9A96E] transition-colors duration-300"
               >
-                batulhusain7862@gmail.com
+                <Mail size={16} />
               </a>
               <a
-                href="https://wa.me/917977582354"
+                href="https://wa.me/918828275778"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[13px] tracking-wide text-[#F5F2EE]/70 hover:text-[#C9A96E] transition-colors duration-300 font-sans"
+                aria-label="WhatsApp Batul"
+                className="flex items-center justify-center w-10 h-10 border border-white/10 text-[#F5F2EE]/60 hover:border-[#C9A96E] hover:text-[#C9A96E] transition-colors duration-300"
               >
-                +91 79775 82354
+                <MessageCircle size={16} />
               </a>
             </div>
           </div>

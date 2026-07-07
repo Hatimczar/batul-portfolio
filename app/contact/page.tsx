@@ -152,43 +152,22 @@ export default function ContactPage() {
                   <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-5">
                     Direct Contact
                   </p>
-                  <div className="space-y-5">
+                  <div className="flex items-center gap-5 mt-2">
                     <a
                       href="mailto:batulhusain7862@gmail.com"
-                      className="flex items-start gap-4 group"
+                      aria-label="Email Batul"
+                      className="flex items-center justify-center w-11 h-11 border border-[#E8E4DF] text-[#8C7B6B] hover:border-[#C9A96E] hover:text-[#C9A96E] transition-colors duration-300"
                     >
-                      <Mail
-                        size={16}
-                        className="text-[#C9A96E] mt-0.5 shrink-0"
-                      />
-                      <div>
-                        <p className="text-[10px] tracking-[0.2em] uppercase font-sans text-[#8C7B6B] mb-1">
-                          Email
-                        </p>
-                        <p className="font-sans text-[14px] text-[#1A1A18] group-hover:text-[#C9A96E] transition-colors duration-300 break-all">
-                          batulhusain7862@gmail.com
-                        </p>
-                      </div>
+                      <Mail size={18} />
                     </a>
-
                     <a
-                      href="https://wa.me/917977582354"
+                      href="https://wa.me/918828275778"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-start gap-4 group"
+                      aria-label="WhatsApp Batul"
+                      className="flex items-center justify-center w-11 h-11 border border-[#E8E4DF] text-[#8C7B6B] hover:border-[#C9A96E] hover:text-[#C9A96E] transition-colors duration-300"
                     >
-                      <MessageCircle
-                        size={16}
-                        className="text-[#C9A96E] mt-0.5 shrink-0"
-                      />
-                      <div>
-                        <p className="text-[10px] tracking-[0.2em] uppercase font-sans text-[#8C7B6B] mb-1">
-                          WhatsApp
-                        </p>
-                        <p className="font-sans text-[14px] text-[#1A1A18] group-hover:text-[#C9A96E] transition-colors duration-300">
-                          +91 79775 82354
-                        </p>
-                      </div>
+                      <MessageCircle size={18} />
                     </a>
                   </div>
                 </div>

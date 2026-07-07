@@ -129,12 +129,14 @@ export default function Nav() {
               className="flex flex-col gap-3"
             >
               <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-white/30">Get in Touch</p>
-              <a href="mailto:batulhusain7862@gmail.com" className="font-sans text-[13px] text-white/60 hover:text-[#C9A96E] transition-colors">
-                batulhusain7862@gmail.com
-              </a>
-              <a href="https://wa.me/917977582354" className="font-sans text-[13px] text-white/60 hover:text-[#C9A96E] transition-colors">
-                +91 79775 82354
-              </a>
+              <div className="flex items-center gap-4 mt-1">
+                <a href="mailto:batulhusain7862@gmail.com" aria-label="Email Batul" className="flex items-center justify-center w-10 h-10 border border-white/10 text-white/60 hover:border-[#C9A96E] hover:text-[#C9A96E] transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
+                <a href="https://wa.me/918828275778" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Batul" className="flex items-center justify-center w-10 h-10 border border-white/10 text-white/60 hover:border-[#C9A96E] hover:text-[#C9A96E] transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                </a>
+              </div>
             </motion.div>
           </motion.div>
         )}
