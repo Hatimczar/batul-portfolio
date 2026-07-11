@@ -34,7 +34,7 @@ export default function ProjectCard({ project, index }: Props) {
           {/* Status badge */}
           {project.status !== "Completed" && (
             <div className="absolute top-4 left-4">
-              <span className="bg-[#C9A96E] text-white text-[10px] tracking-[0.15em] uppercase font-sans px-3 py-1.5">
+              <span className="bg-[#C9A96E] text-white text-[10px] tracking-[0.15em] uppercase font-sans px-3 py-1.5 rounded-full">
                 {project.status}
               </span>
             </div>

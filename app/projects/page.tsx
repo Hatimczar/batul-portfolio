@@ -34,7 +34,7 @@ export default function ProjectsPage() {
                 onClick={() => setActive(cat)}
                 className={`text-[11px] tracking-[0.15em] uppercase font-sans px-5 py-2.5 transition-all duration-300 ${
                   active === cat
-                    ? "glass-dark text-[#F5F2EE]"
+                    ? "glass-dark text-[#F5F2EE] rounded-full"
                     : "glass-pill text-[#8C7B6B] hover:text-[#1A1A18]"
                 }`}
               >

@@ -95,7 +95,7 @@ export default function ProjectAnimations({ project }: { project: Project }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
-                  className="break-inside-avoid overflow-hidden"
+                  className="break-inside-avoid overflow-hidden rounded-xl"
                 >
                   <Image
                     src={src}

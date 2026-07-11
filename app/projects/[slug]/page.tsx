@@ -61,9 +61,9 @@ export default async function ProjectPage({
       </section>
 
       {/* ── PROJECT META ──────────────────────────────────────── */}
-      <section className="py-16 px-6 md:px-12 border-b border-[#E8E4DF]">
+      <section className="py-10 px-6 md:px-12 border-b border-[#E8E4DF]">
         <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+          <div className="glass rounded-2xl p-6 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
             <div>
               <p className="text-[10px] tracking-[0.25em] uppercase font-sans text-[#8C7B6B] mb-2">Location</p>
               <p className="font-sans text-[15px] text-[#1A1A18]">
