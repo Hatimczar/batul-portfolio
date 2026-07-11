@@ -200,7 +200,7 @@ export default function AboutPage() {
                 {skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-[11px] tracking-[0.15em] uppercase font-sans text-[#1A1A18] border border-[#E8E4DF] px-4 py-2.5"
+                    className="glass-pill text-[11px] tracking-[0.15em] uppercase font-sans text-[#1A1A18] px-4 py-2.5"
                   >
                     {skill}
                   </span>
@@ -228,6 +228,7 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7 }}
+                  className="glass p-6 md:p-8"
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
                     <div>

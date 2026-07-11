@@ -3,7 +3,7 @@ import { Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1A18] text-[#F5F2EE] py-16 px-6 md:px-12">
+    <footer className="glass-dark text-[#F5F2EE] py-16 px-6 md:px-12">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 mb-16">
           {/* Brand */}

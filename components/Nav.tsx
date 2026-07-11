@@ -33,11 +33,11 @@ export default function Nav() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const navBg = scrolled
-    ? isHome
-      ? "liquid-glass-dark"
-      : "liquid-glass-light"
-    : "bg-transparent";
+  const navBg = isHome && !scrolled
+    ? "bg-transparent"
+    : isHome && scrolled
+    ? "glass-nav-dark"
+    : "glass-nav";
 
   const textColor = isHome && !scrolled ? "text-white" : "text-[#1A1A18]";
 
@@ -95,7 +95,7 @@ export default function Nav() {
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-40 bg-[#1A1A18] flex flex-col justify-between px-8 pt-28 pb-12 md:hidden"
+            className="fixed inset-0 z-40 glass-menu flex flex-col justify-between px-8 pt-28 pb-12 md:hidden"
           >
             {/* Nav items */}
             <nav className="flex flex-col gap-2">

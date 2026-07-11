@@ -81,7 +81,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 1.6 }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2"
           >
-            <div className="liquid-glass-card flex items-center gap-2.5 px-5 py-2.5 rounded-full">
+            <div className="glass-pill-dark flex items-center gap-2.5 px-5 py-2.5 rounded-full">
               <span className="text-[10px] tracking-[0.25em] uppercase font-sans text-white/60">
                 Scroll
               </span>
@@ -93,7 +93,7 @@ export default function Home() {
 
       {/* ── INTRO ─────────────────────────────────────────────── */}
       <section className="py-16 md:py-28 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1400px] mx-auto glass p-8 md:p-14 lg:p-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-7">
               <motion.p
@@ -206,7 +206,7 @@ export default function Home() {
       </section>
 
       {/* ── ALL PROJECTS CTA ──────────────────────────────────── */}
-      <section className="py-14 md:py-24 px-6 md:px-12 bg-[#1A1A18]">
+      <section className="py-14 md:py-24 px-6 md:px-12 glass-dark">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
             <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-3">
