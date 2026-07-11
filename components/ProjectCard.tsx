@@ -18,7 +18,7 @@ export default function ProjectCard({ project, index }: Props) {
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <Link href={`/projects/${project.slug}`} className="group block active:opacity-80 transition-opacity duration-150">
+      <Link href={`/projects/${project.slug}`} className="group block rounded-xl overflow-hidden hover-lift shadow-sm">
         {/* Image */}
         <div className="relative overflow-hidden aspect-[4/3] bg-[#E8E4DF]">
           <Image
@@ -42,7 +42,7 @@ export default function ProjectCard({ project, index }: Props) {
         </div>
 
         {/* Info */}
-        <div className="glass px-5 py-4 space-y-2">
+        <div className="glass px-5 py-4 space-y-2" style={{borderRadius: '0 0 0.75rem 0.75rem'}}>
           <div className="flex items-start justify-between gap-4">
             <h3 className="font-display text-xl md:text-2xl leading-tight group-hover:text-[#C9A96E] transition-colors duration-300">
               {project.name}

@@ -91,7 +91,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9 }}
-              className="relative aspect-[3/4] bg-[#E8E4DF] overflow-hidden"
+              className="relative aspect-[3/4] bg-[#E8E4DF] overflow-hidden rounded-2xl shadow-md"
             >
               <Image
                 src="/images/batul-portrait.jpeg"
@@ -149,7 +149,7 @@ export default function AboutPage() {
               <div className="mt-12">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase font-sans bg-[#1A1A18] text-[#F5F2EE] px-8 py-4 hover:bg-[#C9A96E] transition-colors duration-300"
+                  className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase font-sans bg-[#1A1A18] text-[#F5F2EE] px-8 py-4 rounded-full hover:bg-[#C9A96E] btn-interactive"
                 >
                   Start a Project <ArrowRight size={12} />
                 </Link>
@@ -228,7 +228,7 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7 }}
-                  className="glass p-6 md:p-8"
+                  className="glass rounded-2xl p-6 md:p-8"
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
                     <div>

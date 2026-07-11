@@ -49,7 +49,7 @@ export default function ContactPage() {
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24">
             {/* Form */}
-            <div className="md:col-span-7 glass p-8 md:p-12">
+            <div className="md:col-span-7 glass rounded-2xl p-8 md:p-12">
               {sent ? (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -133,7 +133,7 @@ export default function ContactPage() {
 
                   <button
                     type="submit"
-                    className="group inline-flex items-center gap-4 bg-[#1A1A18] text-[#F5F2EE] text-[11px] tracking-[0.2em] uppercase font-sans px-10 py-4 hover:bg-[#C9A96E] transition-colors duration-300"
+                    className="group inline-flex items-center gap-4 bg-[#1A1A18] text-[#F5F2EE] text-[11px] tracking-[0.2em] uppercase font-sans px-10 py-4 rounded-full hover:bg-[#C9A96E] btn-interactive"
                   >
                     Send Message
                     <ArrowRight
@@ -147,7 +147,7 @@ export default function ContactPage() {
 
             {/* Direct contact */}
             <div className="md:col-span-4 md:col-start-9">
-              <div className="glass p-8 md:p-10 space-y-10">
+              <div className="glass rounded-2xl p-8 md:p-10 space-y-10">
                 <div>
                   <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-5">
                     Direct Contact

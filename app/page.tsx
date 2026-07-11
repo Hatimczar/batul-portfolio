@@ -93,7 +93,7 @@ export default function Home() {
 
       {/* ── INTRO ─────────────────────────────────────────────── */}
       <section className="py-16 md:py-28 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto glass p-8 md:p-14 lg:p-20">
+        <div className="max-w-[1400px] mx-auto glass rounded-2xl p-8 md:p-14 lg:p-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-7">
               <motion.p
@@ -168,7 +168,7 @@ export default function Home() {
                 href={`/projects/${featured[0].slug}`}
                 className="group block"
               >
-                <div className="relative overflow-hidden aspect-[16/9] bg-[#E8E4DF] mb-6">
+                <div className="relative overflow-hidden aspect-[16/9] bg-[#E8E4DF] mb-6 rounded-xl">
                   <Image
                     src={featured[0].heroImage}
                     alt={featured[0].name}
@@ -218,7 +218,7 @@ export default function Home() {
           </div>
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-4 text-[#F5F2EE] border border-[#F5F2EE]/20 hover:border-[#C9A96E] px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans transition-colors duration-300"
+            className="group inline-flex items-center gap-4 text-[#F5F2EE] border border-[#F5F2EE]/20 hover:border-[#C9A96E] px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans rounded-full btn-interactive"
           >
             View All Projects
             <ArrowRight
@@ -238,7 +238,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9 }}
-              className="relative aspect-[3/4] bg-[#E8E4DF] overflow-hidden"
+              className="relative aspect-[3/4] bg-[#E8E4DF] overflow-hidden rounded-xl"
             >
               <Image
                 src="/images/gita/4bd4102e-851d-48a7-8f6d-ce92df999c1e.jpg"
@@ -270,7 +270,7 @@ export default function Home() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase font-sans bg-[#1A1A18] text-[#F5F2EE] px-8 py-4 hover:bg-[#C9A96E] transition-colors duration-300"
+                className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase font-sans bg-[#1A1A18] text-[#F5F2EE] px-8 py-4 rounded-full hover:bg-[#C9A96E] btn-interactive"
               >
                 Start a Project <ArrowRight size={12} />
               </Link>
