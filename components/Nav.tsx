@@ -33,12 +33,13 @@ export default function Nav() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const navBg =
-    !isHome || scrolled
-      ? "bg-[#F5F2EE]/95 backdrop-blur-sm border-b border-[#E8E4DF]"
-      : "bg-transparent";
+  const navBg = scrolled
+    ? isHome
+      ? "liquid-glass-dark"
+      : "liquid-glass-light"
+    : "bg-transparent";
 
-  const textColor = !isHome || scrolled ? "text-[#1A1A18]" : "text-white";
+  const textColor = isHome && !scrolled ? "text-white" : "text-[#1A1A18]";
 
   return (
     <>
@@ -60,7 +61,7 @@ export default function Nav() {
                 className={`text-[11px] tracking-[0.2em] uppercase font-sans font-medium transition-colors duration-300 relative group ${textColor}`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 h-px w-0 group-hover:w-full transition-all duration-300 ${!isHome || scrolled ? "bg-[#C9A96E]" : "bg-white"}`} />
+                <span className={`absolute -bottom-1 left-0 h-px w-0 group-hover:w-full transition-all duration-300 ${isHome && !scrolled ? "bg-white" : "bg-[#C9A96E]"}`} />
               </Link>
             ))}
           </nav>

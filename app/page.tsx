@@ -79,12 +79,14 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.6 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            className="absolute bottom-10 left-1/2 -translate-x-1/2"
           >
-            <span className="text-[10px] tracking-[0.25em] uppercase font-sans text-white/50">
-              Scroll
-            </span>
-            <ArrowDown size={14} className="text-white/50 animate-bounce" />
+            <div className="liquid-glass-card flex items-center gap-2.5 px-5 py-2.5 rounded-full">
+              <span className="text-[10px] tracking-[0.25em] uppercase font-sans text-white/60">
+                Scroll
+              </span>
+              <ArrowDown size={12} className="text-white/50 animate-bounce" />
+            </div>
           </motion.div>
         </motion.div>
       </section>
