@@ -32,10 +32,10 @@ export default function ProjectsPage() {
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`text-[11px] tracking-[0.15em] uppercase font-sans px-5 py-2.5 border transition-colors duration-300 ${
+                className={`text-[11px] tracking-[0.15em] uppercase font-sans px-5 py-2.5 transition-all duration-300 ${
                   active === cat
-                    ? "bg-[#1A1A18] text-[#F5F2EE] border-[#1A1A18]"
-                    : "bg-transparent text-[#8C7B6B] border-[#E8E4DF] hover:border-[#1A1A18] hover:text-[#1A1A18]"
+                    ? "glass-dark text-[#F5F2EE]"
+                    : "glass-pill text-[#8C7B6B] hover:text-[#1A1A18]"
                 }`}
               >
                 {cat}
