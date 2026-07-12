@@ -11,14 +11,14 @@ export default function Footer() {
             <p className="font-display text-3xl mb-3 tracking-widest uppercase">
               Batul Champeli
             </p>
-            <p className="text-[11px] tracking-[0.2em] uppercase text-[#8C7B6B] font-sans">
+            <p className="text-[11px] tracking-[0.2em] uppercase text-[#F5F2EE]/50 font-sans">
               Interior Designer · Mumbai
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <p className="text-[10px] tracking-[0.25em] uppercase text-[#8C7B6B] font-sans mb-5">
+            <p className="text-[10px] tracking-[0.25em] uppercase text-[#F5F2EE]/50 font-sans mb-5">
               Navigation
             </p>
             <nav className="flex flex-col gap-3">
@@ -30,7 +30,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[13px] tracking-wide text-[#F5F2EE]/70 hover:text-[#C9A96E] transition-colors duration-300 font-sans"
+                  className="text-[13px] tracking-wide text-[#F5F2EE]/80 hover:text-[#C9A96E] transition-colors duration-300 font-sans"
                 >
                   {link.label}
                 </Link>
@@ -40,7 +40,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-[10px] tracking-[0.25em] uppercase text-[#8C7B6B] font-sans mb-5">
+            <p className="text-[10px] tracking-[0.25em] uppercase text-[#F5F2EE]/50 font-sans mb-5">
               Get in Touch
             </p>
             <div className="flex items-center gap-4 mt-1">
@@ -65,10 +65,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <p className="text-[11px] text-[#8C7B6B] font-sans tracking-wide">
+          <p className="text-[11px] text-[#F5F2EE]/50 font-sans tracking-wide">
             © {new Date().getFullYear()} Batul Champeli. All rights reserved.
           </p>
-          <p className="text-[11px] text-[#8C7B6B] font-sans tracking-wide">
+          <p className="text-[11px] text-[#F5F2EE]/50 font-sans tracking-wide">
             Mumbai, India
           </p>
         </div>
