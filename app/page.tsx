@@ -5,10 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import { getFeaturedProjects, getAllProjects } from "@/lib/projects";
-import ProjectCard from "@/components/ProjectCard";
+import { getAllProjects } from "@/lib/projects";
+import ImmersiveGallery from "@/components/ImmersiveGallery";
+import TiltCard from "@/components/TiltCard";
 
-const featured = getFeaturedProjects();
 const all = getAllProjects();
 
 export default function Home() {
@@ -93,7 +93,8 @@ export default function Home() {
 
       {/* ── INTRO ─────────────────────────────────────────────── */}
       <section className="py-16 md:py-28 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto glass rounded-2xl p-8 md:p-14 lg:p-20">
+        <div className="max-w-[1400px] mx-auto">
+        <TiltCard max={3} glare={false} scale={1.005} className="glass rounded-2xl p-8 md:p-14 lg:p-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-7">
               <motion.p
@@ -136,74 +137,12 @@ export default function Home() {
               </motion.div>
             </div>
           </div>
+        </TiltCard>
         </div>
       </section>
 
-      {/* ── FEATURED PROJECTS ─────────────────────────────────── */}
-      <section className="pb-12 md:pb-24 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="flex items-center gap-6 mb-16"
-          >
-            <span className="h-px w-12 bg-[#C9A96E]" />
-            <span className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B]">
-              Featured Projects
-            </span>
-          </motion.div>
-
-          {/* Large hero project */}
-          {featured[0] && (
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9 }}
-              className="mb-20"
-            >
-              <Link
-                href={`/projects/${featured[0].slug}`}
-                className="group block"
-              >
-                <div className="relative overflow-hidden aspect-[16/9] bg-[#E8E4DF] mb-6 rounded-xl">
-                  <Image
-                    src={featured[0].heroImage}
-                    alt={featured[0].name}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    sizes="100vw"
-                  />
-                  <div className="absolute inset-0 bg-[#1A1A18]/0 group-hover:bg-[#1A1A18]/15 transition-colors duration-500" />
-                </div>
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                  <div>
-                    <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] leading-tight group-hover:text-[#C9A96E] transition-colors duration-300">
-                      {featured[0].name}
-                    </h2>
-                    <p className="font-sans text-[12px] tracking-[0.15em] uppercase text-[#8C7B6B] mt-2 leading-relaxed">
-                      {featured[0].type} · {featured[0].location}
-                      {featured[0].building && `, ${featured[0].building}`}
-                    </p>
-                  </div>
-                  <span className="shrink-0 text-[11px] tracking-[0.2em] uppercase font-sans text-[#C9A96E] border-b border-[#C9A96E] pb-1 inline-flex items-center gap-2">
-                    View Project <ArrowRight size={12} />
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
-          )}
-
-          {/* Two-column featured */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            {featured.slice(1).map((project, i) => (
-              <ProjectCard key={project.slug} project={project} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── IMMERSIVE GALLERY ─────────────────────────────────── */}
+      <ImmersiveGallery projects={all.slice(0, 6)} />
 
       {/* ── ALL PROJECTS CTA ──────────────────────────────────── */}
       <section className="py-14 md:py-24 px-6 md:px-12 glass-dark">

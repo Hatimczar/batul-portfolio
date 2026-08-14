@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/projects";
+import TiltCard from "./TiltCard";
 
 type Props = {
   project: Project;
@@ -18,7 +19,8 @@ export default function ProjectCard({ project, index }: Props) {
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <Link href={`/projects/${project.slug}`} className="group block rounded-xl overflow-hidden hover-lift shadow-sm">
+      <TiltCard max={5} glare={true} maxGlare={0.05} scale={1.02} className="rounded-xl shadow-sm">
+      <Link href={`/projects/${project.slug}`} className="group block rounded-xl overflow-hidden">
         {/* Image */}
         <div className="relative overflow-hidden aspect-[4/3] bg-[#E8E4DF]">
           <Image
@@ -60,6 +62,7 @@ export default function ProjectCard({ project, index }: Props) {
           </p>
         </div>
       </Link>
+      </TiltCard>
     </motion.div>
   );
 }
