@@ -79,7 +79,8 @@ export default function Home() {
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   useEffect(() => {
-    // Mouse parallax on hero image
+    // Mouse parallax on hero image — desktop only
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     const img = heroImgRef.current;
     if (!img) return;
     let rx = 0, ry = 0;
@@ -121,7 +122,6 @@ export default function Home() {
               position: "absolute",
               inset: "-4%",
               willChange: "transform",
-              transition: "transform 0.05s linear",
             }}
           >
             <Image
