@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getProjectBySlug, getAllProjects } from "@/lib/projects";
-import ProjectAnimations from "./ProjectAnimations";
+import ProjectContent from "./ProjectContent";
 
 export function generateStaticParams() {
   return getAllProjects().map((p) => ({ slug: p.slug }));
@@ -25,9 +25,9 @@ export default async function ProjectPage({
   const next = currentIndex < all.length - 1 ? all[currentIndex + 1] : null;
 
   return (
-    <>
-      {/* ── HERO ──────────────────────────────────────────────── */}
-      <section className="relative h-[70vh] md:h-screen min-h-[500px] overflow-hidden">
+    <div className="bg-[#0A0906] min-h-screen">
+      {/* ── CINEMATIC HERO ──────────────────────────────────────── */}
+      <section className="relative h-screen overflow-hidden">
         <Image
           src={project.heroImage}
           alt={project.name}
@@ -36,82 +36,159 @@ export default async function ProjectPage({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/70" />
 
+        {/* Deep cinematic gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0906] via-[#0A0906]/30 to-[#0A0906]/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0906]/50 via-transparent to-transparent" />
+
+        {/* Back link */}
         <Link
           href="/projects"
-          className="absolute top-24 left-6 md:left-12 flex items-center gap-2 text-white/70 hover:text-white text-[11px] tracking-[0.2em] uppercase font-sans transition-colors duration-300"
+          className="absolute top-24 left-8 md:left-16 flex items-center gap-3 text-white/40 hover:text-[#C9A96E] text-[10px] tracking-[0.3em] uppercase font-sans transition-colors duration-300 z-10 group"
         >
-          <ArrowLeft size={12} /> All Projects
+          <span className="h-px w-5 bg-current transition-all duration-300 group-hover:w-8" />
+          All Projects
         </Link>
 
-        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-16">
-          <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-white/60 mb-3">
+        {/* Category pill — top right */}
+        <div className="absolute top-24 right-8 md:right-16 z-10">
+          <span className="text-[9px] tracking-[0.4em] uppercase font-sans text-[#C9A96E]/70">
             {project.category}
-          </p>
-          <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] text-white leading-none mb-3">
+          </span>
+        </div>
+
+        {/* Bottom content */}
+        <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-16 z-10">
+          {/* Thin gold rule */}
+          <div className="h-px w-12 bg-[#C9A96E] mb-8" />
+
+          <h1 className="font-display text-[clamp(3rem,8vw,7rem)] text-[#F5F2EE] leading-none tracking-wide mb-4">
             {project.name}
           </h1>
-          <p className="font-sans text-[12px] tracking-[0.15em] uppercase text-white/60">
-            {project.type}
-            {project.location && ` · ${project.location}`}
-            {project.building && `, ${project.building}`}
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-white/40">
+              {project.type}
+            </span>
+            {project.location && (
+              <>
+                <span className="text-white/15">·</span>
+                <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-white/40">
+                  {project.location}
+                  {project.building && `, ${project.building}`}
+                </span>
+              </>
+            )}
+            <span className="text-white/15">·</span>
+            <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#C9A96E]/60">
+              {project.status}
+            </span>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 right-8 md:right-16 z-10 flex flex-col items-center gap-2">
+          <div className="w-px h-10 bg-white/15" />
+          <span className="text-[8px] tracking-[0.4em] uppercase font-sans text-white/20"
+            style={{ writingMode: "vertical-rl" }}>
+            Scroll
+          </span>
+        </div>
+      </section>
+
+      {/* ── META STRIP ──────────────────────────────────────────── */}
+      <section className="border-y border-white/[0.06]">
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {[
+            { label: "Location", value: project.location + (project.building ? `, ${project.building}` : "") },
+            { label: "Type", value: project.type },
+            { label: "Status", value: project.status },
+            { label: "Year", value: project.year === "Needs Clarification" ? "—" : project.year },
+          ].map((item, i) => (
+            <div
+              key={item.label}
+              className={`px-8 md:px-12 py-7 ${i < 3 ? "border-r border-white/[0.06]" : ""}`}
+            >
+              <p className="text-[8px] tracking-[0.4em] uppercase font-sans text-white/25 mb-2">
+                {item.label}
+              </p>
+              <p className="font-sans text-[13px] text-[#F5F2EE]/70">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CONCEPT PULL QUOTE ──────────────────────────────────── */}
+      <section className="px-8 md:px-16 py-20 md:py-32">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex items-start gap-8 mb-10">
+            <span className="h-px w-10 bg-[#C9A96E] mt-3 shrink-0" />
+            <p className="text-[9px] tracking-[0.5em] uppercase font-sans text-[#C9A96E]/60">
+              Concept
+            </p>
+          </div>
+          <p className="font-display text-[clamp(1.6rem,3.5vw,2.8rem)] text-[#F5F2EE] leading-snug max-w-[900px]">
+            &ldquo;{project.concept}&rdquo;
           </p>
         </div>
       </section>
 
-      {/* ── PROJECT META ──────────────────────────────────────── */}
-      <section className="py-10 px-6 md:px-12 border-b border-[#E8E4DF]">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="glass rounded-2xl p-6 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
-            <div>
-              <p className="text-[10px] tracking-[0.25em] uppercase font-sans text-[#8C7B6B] mb-2">Location</p>
-              <p className="font-sans text-[15px] text-[#1A1A18]">
-                {project.location}
-                {project.building && (
-                  <>
-                    <br />
-                    <span className="text-[#8C7B6B] text-[13px]">{project.building}</span>
-                  </>
-                )}
-              </p>
+      {/* ── WALKTHROUGH + ANIMATIONS ─────────────────────────────── */}
+      <ProjectContent project={project} />
+
+      {/* ── SCOPE SECTION ──────────────────────────────────────── */}
+      <section className="px-8 md:px-16 py-16 md:py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div>
+            <div className="flex items-center gap-5 mb-10">
+              <span className="h-px w-8 bg-[#C9A96E]" />
+              <span className="text-[9px] tracking-[0.5em] uppercase font-sans text-white/30">
+                Project Story
+              </span>
             </div>
-            <div>
-              <p className="text-[10px] tracking-[0.25em] uppercase font-sans text-[#8C7B6B] mb-2">Type</p>
-              <p className="font-sans text-[15px] text-[#1A1A18]">{project.type}</p>
+            <p className="font-sans text-[15px] leading-[1.85] text-white/50">
+              {project.story}
+            </p>
+          </div>
+          <div>
+            <div className="flex items-center gap-5 mb-10">
+              <span className="h-px w-8 bg-[#C9A96E]" />
+              <span className="text-[9px] tracking-[0.5em] uppercase font-sans text-white/30">
+                Scope of Work
+              </span>
             </div>
-            <div>
-              <p className="text-[10px] tracking-[0.25em] uppercase font-sans text-[#8C7B6B] mb-2">Status</p>
-              <p className="font-sans text-[15px] text-[#1A1A18]">{project.status}</p>
-            </div>
-            <div>
-              <p className="text-[10px] tracking-[0.25em] uppercase font-sans text-[#8C7B6B] mb-2">Year</p>
-              <p className="font-sans text-[15px] text-[#1A1A18]">
-                {project.year === "Needs Clarification" ? "—" : project.year}
-              </p>
-            </div>
+            <ul className="space-y-4">
+              {project.scope.map((item, i) => (
+                <li key={item} className="flex items-start gap-4 font-sans text-[13px] text-white/40">
+                  <span className="text-[#C9A96E]/60 font-sans text-[10px] tracking-wider mt-0.5 tabular-nums shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* ── CONCEPT + STORY + GALLERY (animated) ──────────────── */}
-      <ProjectAnimations project={project} />
-
-      {/* ── NEXT / PREV NAV ───────────────────────────────────── */}
-      <section className="border-t border-[#E8E4DF]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-2">
+      {/* ── NEXT / PREV NAV ──────────────────────────────────────── */}
+      <section className="border-t border-white/[0.06]">
+        <div className="grid grid-cols-2">
           {prev ? (
             <Link
               href={`/projects/${prev.slug}`}
-              className="group flex flex-col p-6 md:p-12 border-r border-[#E8E4DF] hover:bg-[#F5F2EE] transition-colors duration-300"
+              className="group relative flex flex-col p-8 md:p-14 border-r border-white/[0.06] overflow-hidden hover:bg-white/[0.02] transition-colors duration-500"
             >
-              <span className="flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase font-sans text-[#8C7B6B] mb-3">
-                <ArrowLeft size={12} /> Previous
+              <span className="flex items-center gap-3 text-[9px] tracking-[0.35em] uppercase font-sans text-white/25 mb-5 group-hover:text-[#C9A96E]/60 transition-colors duration-300">
+                <ArrowLeft size={10} className="group-hover:-translate-x-1 transition-transform duration-300" />
+                Previous
               </span>
-              <span className="font-display text-xl md:text-2xl text-[#1A1A18] group-hover:text-[#C9A96E] transition-colors duration-300">
+              <span className="font-display text-xl md:text-3xl text-[#F5F2EE]/70 group-hover:text-[#F5F2EE] transition-colors duration-300">
                 {prev.name}
               </span>
-              <span className="font-sans text-[12px] text-[#8C7B6B] mt-1">{prev.location}</span>
+              <span className="font-sans text-[11px] text-white/25 mt-2 tracking-wide">
+                {prev.location}
+              </span>
             </Link>
           ) : (
             <div />
@@ -120,21 +197,24 @@ export default async function ProjectPage({
           {next ? (
             <Link
               href={`/projects/${next.slug}`}
-              className="group flex flex-col items-end p-6 md:p-12 hover:bg-[#F5F2EE] transition-colors duration-300"
+              className="group flex flex-col items-end p-8 md:p-14 overflow-hidden hover:bg-white/[0.02] transition-colors duration-500"
             >
-              <span className="flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase font-sans text-[#8C7B6B] mb-3">
-                Next <ArrowRight size={12} />
+              <span className="flex items-center gap-3 text-[9px] tracking-[0.35em] uppercase font-sans text-white/25 mb-5 group-hover:text-[#C9A96E]/60 transition-colors duration-300">
+                Next
+                <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
-              <span className="font-display text-xl md:text-2xl text-[#1A1A18] group-hover:text-[#C9A96E] transition-colors duration-300 text-right">
+              <span className="font-display text-xl md:text-3xl text-[#F5F2EE]/70 group-hover:text-[#F5F2EE] transition-colors duration-300 text-right">
                 {next.name}
               </span>
-              <span className="font-sans text-[12px] text-[#8C7B6B] mt-1">{next.location}</span>
+              <span className="font-sans text-[11px] text-white/25 mt-2 tracking-wide">
+                {next.location}
+              </span>
             </Link>
           ) : (
             <div />
           )}
         </div>
       </section>
-    </>
+    </div>
   );
 }
