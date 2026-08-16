@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import type { Project } from "@/lib/projects";
 import ProjectWalkthrough from "@/components/ProjectWalkthrough";
 import ProjectSlider from "@/components/ProjectSlider";
@@ -54,13 +53,13 @@ export default function ProjectContent({ project }: { project: Project }) {
 
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 space-y-3">
             {project.galleryImages.slice(12).map((src, i) => (
-              <motion.div
+              <div
                 key={src}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: (i % 3) * 0.07, ease: [0.25, 0.1, 0.25, 1] }}
                 className="break-inside-avoid overflow-hidden"
+                style={{
+                  animation: "fadeInUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both",
+                  animationDelay: `${(i % 3) * 0.07 + 0.1}s`,
+                }}
               >
                 <img
                   src={src}
@@ -68,7 +67,7 @@ export default function ProjectContent({ project }: { project: Project }) {
                   className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
-              </motion.div>
+              </div>
             ))}
           </div>
         </section>

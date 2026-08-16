@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -51,6 +51,7 @@ export default function ImmersiveGallery({ projects }: { projects: Project[] }) 
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
+  const touchStartX = useRef<number>(0);
 
   const goTo = useCallback(
     (index: number) => {
@@ -76,13 +77,37 @@ export default function ImmersiveGallery({ projects }: { projects: Project[] }) 
     return () => clearInterval(t);
   }, [goNext, paused]);
 
+  /* Keyboard navigation */
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [goNext, goPrev]);
+
   const project = projects[current];
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goNext();
+      else goPrev();
+    }
+  };
 
   return (
     <section
       className="relative h-screen overflow-hidden cursor-none"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       data-cursor="gallery"
     >
       {/* ── Background image ── */}
@@ -181,13 +206,15 @@ export default function ImmersiveGallery({ projects }: { projects: Project[] }) 
         >
           <ArrowLeft size={14} />
         </button>
-        <span className="font-display text-[clamp(1.5rem,3vw,2rem)] text-white/[0.06] tabular-nums select-none">
-          {String(current + 1).padStart(2, "0")}
-        </span>
-        <span className="text-[10px] text-white/20 font-sans">/</span>
-        <span className="font-sans text-[10px] text-white/20 tabular-nums">
-          {String(projects.length).padStart(2, "0")}
-        </span>
+        <div className="flex items-baseline gap-1.5 select-none">
+          <span className="font-display text-[clamp(1.5rem,2.5vw,2rem)] text-[#F5F2EE]/50 tabular-nums leading-none">
+            {String(current + 1).padStart(2, "0")}
+          </span>
+          <span className="text-[10px] text-white/20 font-sans">/</span>
+          <span className="font-sans text-[10px] text-white/20 tabular-nums">
+            {String(projects.length).padStart(2, "0")}
+          </span>
+        </div>
         <button
           onClick={goNext}
           aria-label="Next project"

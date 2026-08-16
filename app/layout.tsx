@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import LoadingScreen from "@/components/LoadingScreen";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 export const metadata: Metadata = {
   icons: { icon: "/favicon.svg" },
@@ -26,7 +27,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col cursor-none-md">
+      <body className="min-h-screen flex flex-col">
+        <AnimatedBackground />
         <LoadingScreen />
         <SmoothScroll />
         <CustomCursor />

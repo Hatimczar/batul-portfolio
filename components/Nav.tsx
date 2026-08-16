@@ -74,7 +74,8 @@ export default function Nav() {
 
           {/* Hamburger */}
           <button
-            className={`md:hidden z-[60] relative transition-colors duration-300 ${menuOpen ? "text-white" : textColor}`}
+            className={`md:hidden relative transition-colors duration-300 ${menuOpen ? "text-white" : textColor}`}
+            style={{ zIndex: 70 }}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >

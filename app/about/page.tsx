@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 
 const skills = [
@@ -67,226 +67,253 @@ const education = [
 ];
 
 export default function AboutPage() {
+  useEffect(() => {
+    const els = document.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <>
-      {/* ── HEADER ────────────────────────────────────────────── */}
-      <section className="pt-28 pb-10 md:pt-36 md:pb-24 px-6 md:px-12">
+      {/* ── HEADER ─────────────────────────────────────────────── */}
+      <section className="bg-[#0A0906] pt-32 pb-20 px-8 md:px-16 border-b border-white/[0.06]">
         <div className="max-w-[1400px] mx-auto">
-          <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-4">
-            The Designer
-          </p>
-          <h1 className="font-display text-[clamp(3rem,8vw,6rem)] leading-none text-[#1A1A18]">
+          <div className="flex items-center gap-4 mb-10">
+            <span className="h-px w-8 bg-[#C9A96E]" />
+            <span className="text-[9px] tracking-[0.5em] uppercase font-sans text-[#C9A96E]/60">
+              The Designer
+            </span>
+          </div>
+          <h1 className="font-display text-[clamp(4rem,10vw,8rem)] leading-none text-[#F5F2EE]">
             About
           </h1>
         </div>
       </section>
 
-      {/* ── BIO + IMAGE ───────────────────────────────────────── */}
-      <section className="pb-14 md:pb-28 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
-            {/* Portrait placeholder — will be replaced with Batul's photo */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9 }}
-              className="relative aspect-[3/4] bg-[#E8E4DF] overflow-hidden rounded-2xl shadow-md"
-            >
-              <Image
-                src="/images/batul-portrait.jpeg"
-                alt="Batul Champeli"
-                fill
-                className="object-cover"
-                sizes="50vw"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1A1A18]/60 to-transparent p-8">
-                <p className="font-display text-2xl text-white">
-                  Batul Champeli
-                </p>
-                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-white/60 mt-1">
-                  Interior Designer · Mumbai
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.15 }}
-              className="pt-4 md:pt-8"
-            >
-              <p className="font-display text-[clamp(1.4rem,2.5vw,2rem)] leading-snug text-[#1A1A18] mb-8">
-                Interior designer with a passion for creating spaces that balance
-                function, beauty, and personal meaning.
+      {/* ── BIO + PORTRAIT ─────────────────────────────────────── */}
+      <section className="bg-[#F5F2EE] py-24 md:py-36 px-8 md:px-16">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20 items-start">
+          {/* Portrait — 5 cols */}
+          <div
+            className="md:col-span-5 relative overflow-hidden"
+            style={{ aspectRatio: "3/4" }}
+            data-reveal
+          >
+            <Image
+              src="/images/batul-portrait.jpeg"
+              alt="Batul Champeli"
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 42vw, 100vw"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0A0906]/70 to-transparent px-8 pb-8 pt-20">
+              <p className="font-display text-2xl text-white leading-none">
+                Batul Champeli
               </p>
+              <p className="font-sans text-[10px] tracking-[0.4em] uppercase text-white/50 mt-2">
+                Interior Designer · Mumbai
+              </p>
+            </div>
+          </div>
 
-              <div className="space-y-5 font-sans text-[15px] leading-relaxed text-[#8C7B6B]">
-                <p>
-                  Based in Mumbai, I work across residential, commercial,
-                  renovation, and turnkey execution projects — bringing each
-                  client's vision to life through careful planning, considered
-                  material choices, and meticulous on-site coordination.
-                </p>
-                <p>
-                  My approach begins with listening. Before a single line is
-                  drawn, I invest time in understanding how a family lives,
-                  what a client values, and what the space needs to become. From
-                  there, the design process unfolds — from initial concept and
-                  space planning through material selection, vendor coordination,
-                  and final handover.
-                </p>
-                <p>
-                  Trained at SNDT Women's University and currently working with
-                  Kumpal & Associates, I have delivered completed residential
-                  interiors across Bandra, Prabhadevi, Santacruz, and beyond.
-                  Each project is approached with the same commitment: to create
-                  spaces that feel entirely their own.
-                </p>
-              </div>
+          {/* Text — 7 cols */}
+          <div className="md:col-span-7 md:pt-4">
+            <p
+              className="font-display text-[clamp(1.5rem,2.8vw,2.4rem)] leading-snug text-[#1A1A18] mb-10"
+              data-reveal
+              data-reveal-delay="1"
+            >
+              Interior designer with a passion for creating spaces that balance
+              function, beauty, and personal meaning.
+            </p>
 
-              <div className="mt-12">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase font-sans bg-[#1A1A18] text-[#F5F2EE] px-8 py-4 rounded-full hover:bg-[#C9A96E] btn-interactive"
-                >
-                  Start a Project <ArrowRight size={12} />
-                </Link>
-              </div>
-            </motion.div>
+            <div
+              className="space-y-5 font-sans text-[15px] leading-[1.9] text-[#8C7B6B] mb-14"
+              data-reveal
+              data-reveal-delay="2"
+            >
+              <p>
+                Based in Mumbai, I work across residential, commercial,
+                renovation, and turnkey execution projects — bringing each
+                client&apos;s vision to life through careful planning, considered
+                material choices, and meticulous on-site coordination.
+              </p>
+              <p>
+                My approach begins with listening. Before a single line is drawn,
+                I invest time in understanding how a family lives, what a client
+                values, and what the space needs to become. From there, the
+                design process unfolds — from initial concept and space planning
+                through material selection, vendor coordination, and final
+                handover.
+              </p>
+              <p>
+                Trained at SNDT Women&apos;s University and currently working with
+                Kumpal &amp; Associates, I have delivered completed residential
+                interiors across Bandra, Prabhadevi, Santacruz, and beyond.
+              </p>
+            </div>
+
+            <div data-reveal data-reveal-delay="3">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-4 text-[10px] tracking-[0.3em] uppercase font-sans bg-[#1A1A18] text-[#F5F2EE] px-10 py-5 hover:bg-[#C9A96E] transition-colors duration-300"
+              >
+                Start a Project
+                <ArrowRight
+                  size={12}
+                  className="group-hover:translate-x-1 transition-transform duration-300"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── PHILOSOPHY ────────────────────────────────────────── */}
-      <section className="py-14 md:py-24 px-6 md:px-12 bg-[#1A1A18]">
-        <div className="max-w-[1400px] mx-auto max-w-3xl">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-8"
-          >
-            My Approach
-          </motion.p>
-          <motion.blockquote
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: 0.1 }}
-            className="font-display text-[clamp(1.6rem,3.5vw,2.8rem)] text-[#F5F2EE] leading-snug"
+      {/* ── PHILOSOPHY ─────────────────────────────────────────── */}
+      <section className="bg-[#0A0906] py-24 md:py-36 px-8 md:px-16 border-y border-white/[0.06]">
+        <div className="max-w-[1000px] mx-auto">
+          <div className="flex items-center gap-4 mb-12" data-reveal>
+            <span className="h-px w-8 bg-[#C9A96E]" />
+            <span className="text-[9px] tracking-[0.5em] uppercase font-sans text-[#C9A96E]/60">
+              My Approach
+            </span>
+          </div>
+          <blockquote
+            className="font-display text-[clamp(1.7rem,3.5vw,3rem)] text-[#F5F2EE] leading-snug"
+            data-reveal
+            data-reveal-delay="1"
           >
             &ldquo;Successful interiors are created through a balance of
             functionality, aesthetics, and attention to detail. Every project
-            begins with understanding the client&apos;s lifestyle —and ends
+            begins with understanding the client&apos;s lifestyle — and ends
             with a space that is both practical and visually engaging.&rdquo;
-          </motion.blockquote>
+          </blockquote>
         </div>
       </section>
 
-      {/* ── SKILLS ────────────────────────────────────────────── */}
-      <section className="py-14 md:py-24 px-6 md:px-12 border-b border-[#E8E4DF]">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-            <div className="md:col-span-3">
-              <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-4">
+      {/* ── SKILLS ─────────────────────────────────────────────── */}
+      <section className="bg-[#F5F2EE] py-24 md:py-28 px-8 md:px-16 border-b border-[#1A1A18]/[0.06]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+          <div className="md:col-span-3" data-reveal>
+            <div className="flex items-center gap-4">
+              <span className="h-px w-8 bg-[#C9A96E]" />
+              <span className="text-[9px] tracking-[0.5em] uppercase font-sans text-[#C9A96E]/60">
                 Expertise
-              </p>
+              </span>
             </div>
-            <div className="md:col-span-9">
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="glass-pill text-[11px] tracking-[0.15em] uppercase font-sans text-[#1A1A18] px-4 py-2.5"
-                  >
+          </div>
+          <div className="md:col-span-9">
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+              {skills.map((skill, i) => (
+                <div
+                  key={skill}
+                  className="flex items-center gap-4 py-4 border-b border-[#1A1A18]/[0.06]"
+                  data-reveal
+                  data-reveal-delay={i % 2 === 1 ? "1" : undefined}
+                >
+                  <span className="h-px w-4 bg-[#C9A96E] shrink-0" />
+                  <span className="font-sans text-[13px] tracking-[0.15em] uppercase text-[#1A1A18]/70">
                     {skill}
                   </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── EXPERIENCE ────────────────────────────────────────── */}
-      <section className="py-14 md:py-24 px-6 md:px-12 border-b border-[#E8E4DF]">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-            <div className="md:col-span-3">
-              <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-4">
-                Experience
-              </p>
-            </div>
-            <div className="md:col-span-9 space-y-14">
-              {experience.map((exp) => (
-                <motion.div
-                  key={exp.company}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                  className="glass rounded-2xl p-6 md:p-8"
-                >
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
-                    <div>
-                      <h3 className="font-display text-xl text-[#1A1A18]">
-                        {exp.role}
-                      </h3>
-                      <p className="font-sans text-[13px] text-[#C9A96E]">
-                        {exp.company}
-                      </p>
-                    </div>
-                    <p className="font-sans text-[12px] tracking-wide text-[#8C7B6B] shrink-0">
-                      {exp.period}
-                    </p>
-                  </div>
-                  <ul className="space-y-2">
-                    {exp.highlights.map((h) => (
-                      <li
-                        key={h}
-                        className="flex items-start gap-3 font-sans text-[13px] text-[#8C7B6B]"
-                      >
-                        <span className="mt-[7px] h-1 w-1 rounded-full bg-[#C9A96E] shrink-0" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── EDUCATION ─────────────────────────────────────────── */}
-      <section className="py-14 md:py-24 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-            <div className="md:col-span-3">
-              <p className="text-[10px] tracking-[0.3em] uppercase font-sans text-[#8C7B6B] mb-4">
-                Education
-              </p>
-            </div>
-            <div className="md:col-span-9 space-y-10">
-              {education.map((edu) => (
-                <div key={edu.institution} className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
-                  <div>
-                    <h3 className="font-display text-xl text-[#1A1A18]">
-                      {edu.degree}
-                    </h3>
-                    <p className="font-sans text-[13px] text-[#8C7B6B]">
-                      {edu.institution}
-                    </p>
-                  </div>
-                  <p className="font-sans text-[12px] tracking-wide text-[#8C7B6B] shrink-0">
-                    {edu.period}
-                  </p>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── EXPERIENCE ─────────────────────────────────────────── */}
+      <section className="bg-[#F5F2EE] py-24 md:py-28 px-8 md:px-16 border-b border-[#1A1A18]/[0.06]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+          <div className="md:col-span-3" data-reveal>
+            <div className="flex items-center gap-4">
+              <span className="h-px w-8 bg-[#C9A96E]" />
+              <span className="text-[9px] tracking-[0.5em] uppercase font-sans text-[#C9A96E]/60">
+                Experience
+              </span>
+            </div>
+          </div>
+          <div className="md:col-span-9">
+            {experience.map((exp, i) => (
+              <div
+                key={exp.company}
+                className="py-10 border-b border-[#1A1A18]/[0.06]"
+                data-reveal
+                data-reveal-delay={i > 0 ? "1" : undefined}
+              >
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-3 mb-6">
+                  <div>
+                    <h3 className="font-display text-[clamp(1.3rem,2vw,1.8rem)] text-[#1A1A18] leading-tight">
+                      {exp.role}
+                    </h3>
+                    <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#C9A96E] mt-1.5">
+                      {exp.company}
+                    </p>
+                  </div>
+                  <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#8C7B6B]/50 shrink-0">
+                    {exp.period}
+                  </p>
+                </div>
+                <ul className="space-y-3">
+                  {exp.highlights.map((h) => (
+                    <li
+                      key={h}
+                      className="flex items-start gap-4 font-sans text-[14px] leading-[1.75] text-[#8C7B6B]"
+                    >
+                      <span className="h-px w-4 bg-[#C9A96E] mt-[10px] shrink-0" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── EDUCATION ──────────────────────────────────────────── */}
+      <section className="bg-[#F5F2EE] py-24 md:py-28 px-8 md:px-16">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+          <div className="md:col-span-3" data-reveal>
+            <div className="flex items-center gap-4">
+              <span className="h-px w-8 bg-[#C9A96E]" />
+              <span className="text-[9px] tracking-[0.5em] uppercase font-sans text-[#C9A96E]/60">
+                Education
+              </span>
+            </div>
+          </div>
+          <div className="md:col-span-9">
+            {education.map((edu, i) => (
+              <div
+                key={edu.institution}
+                className="py-10 border-b border-[#1A1A18]/[0.06] flex flex-col md:flex-row md:items-baseline md:justify-between gap-3"
+                data-reveal
+                data-reveal-delay={i > 0 ? "1" : undefined}
+              >
+                <div>
+                  <h3 className="font-display text-[clamp(1.3rem,2vw,1.8rem)] text-[#1A1A18] leading-tight">
+                    {edu.degree}
+                  </h3>
+                  <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#8C7B6B] mt-1.5">
+                    {edu.institution}
+                  </p>
+                </div>
+                <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#8C7B6B]/50 shrink-0">
+                  {edu.period}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

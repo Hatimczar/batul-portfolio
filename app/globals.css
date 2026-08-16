@@ -68,6 +68,8 @@
     -moz-osx-font-smoothing: grayscale;
     /* Remove blue flash on tap for iOS */
     -webkit-tap-highlight-color: transparent;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
   }
   ::selection {
     background-color: #C9A96E;
@@ -286,6 +288,18 @@ body::after {
   to   { transform: translateY(0);    opacity: 1; }
 }
 
+/* ── Generic fade-up for photo grids, cards ─────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll indicator gold line ─────────────────────────────────── */
+@keyframes expandDown {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
 /* ── Loading animation for walkthrough placeholder ───────────────── */
 @keyframes shimmer {
   from { background-position: -200% 0; }
@@ -295,4 +309,28 @@ body::after {
   background: linear-gradient(90deg, #1a1a18 25%, #2a2a28 50%, #1a1a18 75%);
   background-size: 200% 100%;
   animation: shimmer 1.8s infinite;
+}
+
+/* ── Scroll reveal system ──────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.75s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.75s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+[data-reveal][data-reveal-delay="1"] { transition-delay: 0.12s; }
+[data-reveal][data-reveal-delay="2"] { transition-delay: 0.24s; }
+[data-reveal][data-reveal-delay="3"] { transition-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
